@@ -1,4 +1,4 @@
-Package: quiz_R
+Package: quizR
 Title: Quizzes for students
 Version: 0.1
 Authors@R: person("Giancarlo M.", "Correa", email = "moroncog@oregonstate.edu",
