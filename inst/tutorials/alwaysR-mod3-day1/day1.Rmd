@@ -1,0 +1,144 @@
+---
+title: "AlwaysR, Módulo III: Día 1"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Tendencia central
+
+### Pregunta 1 
+
+Muestra las primeras 5 filas de la base de datos `iris`:
+
+```{r question1, exercise=TRUE}
+
+```
+
+### Pregunta 2
+
+Calcula la media de la variable `Sepal.Width`:
+
+```{r question2, exercise=TRUE}
+
+```
+
+### Pregunta 3
+
+Calcula la moda de la variable `Species`:
+
+*Pista: Usa la función* `table`.
+
+```{r question3, exercise=TRUE}
+
+```
+
+### Pregunta 4
+
+Calcula la mediana de la variable `Sepal.Length`:
+
+```{r question4, exercise=TRUE}
+
+```
+
+### Pregunta 5
+
+Responde las siguientes preguntas
+
+```{r quiz1}
+quiz(
+  question("Que medida de tendencia central es mas apropiada para una variable categorica?",
+    answer("media"),
+    answer("mediana"),
+    answer("moda", correct = TRUE)
+  ),
+  question("Que medida de tendencia central es mas apropiada cuando tenemos una variable con distribucion no normal?",
+    answer("media"),
+    answer("mediana", correct = TRUE),
+    answer("moda")
+  )
+)
+```
+
+
+## Dispersión
+
+### Pregunta 1
+
+Calcula la varianza de la variable `Sepal.Length`:
+
+```{r question5, exercise=TRUE}
+
+```
+
+### Pregunta 2
+
+Calcula el coeficiente de variación de la variable `Petal.Length`:
+
+```{r question6, exercise=TRUE}
+
+```
+
+### Pregunta 3
+
+Calcula el rango interquartil de la variable `Sepal.Width`:
+
+```{r question7, exercise=TRUE}
+
+```
+
+### Pregunta 4
+
+Calcula el percentil 14 de la variable `Sepal.Width`:
+
+```{r question8, exercise=TRUE}
+
+```
+
+## Figuras
+
+### Pregunta 1
+
+Has un diagrama de cajas simple de la variable `Sepal.Length`:
+
+```{r question9, exercise=TRUE}
+
+```
+
+### Pregunta 2
+
+Has una curva de densidad simple de la variable `Petal.Length`:
+
+```{r question10, exercise=TRUE}
+
+```
+
+## Probabilidad
+
+### Pregunta 1
+
+Calcula la probabilidad de obtener un valor mayor a 5.5 en la variable `Sepal.Length`:
+
+*Pista: usa la media y desviación estándar de la muestra. Asume una distribución normal.*
+
+```{r question11, exercise=TRUE}
+
+```
+
+### Pregunta 2
+
+Calcula la probabilidad de obtener un valor igual a 8 del vector llamado `newVec`, el cual tiene distribución tipo Poisson:
+
+```{r question12a, echo = FALSE}
+set.seed(123)
+newVec = rpois(n = 1000, lambda = 10)
+```
+
+```{r question12, exercise=TRUE}
+
+```
