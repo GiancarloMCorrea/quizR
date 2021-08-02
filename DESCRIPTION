@@ -1,4 +1,9 @@
 Package: quiz_R
-Type: Package
 Title: Quizzes for students
-Version: 0.0.1.0
+Version: 0.1
+Authors@R: person("Giancarlo M.", "Correa", email = "moroncog@oregonstate.edu",
+                  role = c("aut", "cre"))
+Description: Make quizzes for students
+Depends: R (>= 3.1.0)
+License: LICENSE
+LazyData: true
