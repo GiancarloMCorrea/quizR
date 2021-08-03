@@ -1,0 +1,101 @@
+---
+title: "AlwaysR, Módulo III: Día 2"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Repaso
+
+### Pregunta 1 
+
+Calcula la varianza de la variable `mpg` de la base de datos `mtcars` para cada categoría de la variable `am`:
+
+```{r question1, exercise=TRUE}
+head(mtcars)
+```
+
+### Pregunta 2 
+
+Obten la tabla de contingencia de las variables `am` y `vs` de la base de datos `mtcars`:
+
+```{r question2, exercise=TRUE}
+
+```
+
+### Pregunta 3 
+
+Obten los estadísticos descriptivos más importantes de cada columna de la base de datos `mtcars`:
+
+```{r question3, exercise=TRUE}
+
+```
+
+### Pregunta 4 
+
+Obten un scatterplot de las variables `mpg` (eje x) y `drat` (eje y), donde los puntos sean diferenciados por tipo de transmisión (`am`) (usa la base de datos `mtcars`):
+
+```{r question4, exercise=TRUE}
+
+```
+
+## Prueba de hipótesis
+
+### Pregunta 1
+
+Un investigador ha tomado información de la longitud de ala de una especie de ave en un bosque A y en un bosque B. Se han muestreado 100 individuos en el bosque A y 120 individuos en el bosque B. Los vectores `medA` y `medB` son los datos simulados para el bosque A y B, respectivamente. 
+
+Haz una prueba con las siguientes características: $H_0: \mu_A=\mu_B$ y $H_A: \mu_A\neq \mu_B$, donde $\mu_A$ es la media poblacional en el bosque A y $\mu_B$ es la media poblacional en el bosque B.
+
+```{r question5, exercise=TRUE}
+medA = rnorm(n = 100, mean = 60, sd = 10)
+medB = rnorm(n = 120, mean = 90, sd = 10)
+```
+
+### Pregunta 2
+
+Un investigador ha tomado información de concentración de oxígeno en 50 puntos de muestreo diferentes. El vector `concO2` es el vector simulado con estos datos.
+
+Haz una prueba con las siguientes características: $H_0: \mu=60$ y $H_A: \mu> 60$, donde $\mu$ es la media poblacional de la concentración de oxígeno.
+
+```{r question6, exercise=TRUE}
+concO2 = rnorm(n = 50, mean = 40, sd = 2)
+```
+
+### Pregunta 3
+
+Un investigador ha tomado información de la presencia/ausencia de un tipo de parásito en 200 individuos de leones marinos diferenciado por sexo (hembra/macho). La tabla `myTab` nos muestra estos datos.
+
+Haz una prueba estadística que evalúe si hay una asociación significativa entre las categorías de sexo y presencia/ausencia del parásito.
+
+```{r question7, exercise=TRUE}
+myTab = as.table(rbind(c(70,30), c(50,50)))
+dimnames(myTab) = list(parasito = c("Ausencia", "Presencia"),
+                   sexo = c("macho","hembra"))
+```
+
+
+## ANOVA
+
+### Pregunta 1
+
+Evalúa si existen diferencias significativas en las medias poblacionales de la variable `mpg` de la base de datos `mtcars` para diferentes tipos de transmisión (columna `am`).
+
+```{r question8, exercise=TRUE}
+
+```
+
+### Pregunta 2
+
+Evaluar si el ANOVA de la pregunta anterior cumple con el supuesto de normalidad
+
+```{r question9, exercise=TRUE}
+
+```
+
+
