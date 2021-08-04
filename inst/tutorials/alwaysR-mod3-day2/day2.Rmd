@@ -61,7 +61,7 @@ medB = rnorm(n = 120, mean = 90, sd = 10)
 
 Un investigador ha tomado información de concentración de oxígeno en 50 puntos de muestreo diferentes. El vector `concO2` es el vector simulado con estos datos.
 
-Haz una prueba con las siguientes características: $H_0: \mu=60$ y $H_A: \mu> 60$, donde $\mu$ es la media poblacional de la concentración de oxígeno.
+Haz una prueba con las siguientes características: $H_0: \mu\leq 60$ y $H_A: \mu> 60$, donde $\mu$ es la media poblacional de la concentración de oxígeno.
 
 ```{r question6, exercise=TRUE}
 concO2 = rnorm(n = 50, mean = 40, sd = 2)
