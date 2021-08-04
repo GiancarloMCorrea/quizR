@@ -1,0 +1,86 @@
+---
+title: "AlwaysR, Módulo III: Día 3"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Repaso
+
+### Pregunta 1 
+
+Responde las siguientes preguntas:
+
+```{r quiz1}
+quiz(
+  question("¿Qué prueba estadística (de las que hemos visto) es más adecuada cuando la variable no tiene distribución normal?",
+    answer("Prueba t"),
+    answer("Prueba Z"),
+    answer("Kruskall-Wallis", correct = TRUE),
+    answer("Prueba binomial exacta")
+  ),
+  question("¿Qué prueba estadística nos exige saber la varianza poblacional?",
+    answer("Prueba t"),
+    answer("Prueba Z", correct = TRUE),
+    answer("Prueba binomial exacta"),
+    answer("Kolmogorov-Smirnov")
+  ),
+  question("En una prueba t de una muestra, la hipótesis nula es que la media poblacional sea menor o igual a 5. ¿Qué debemos especificar en el argumento alternative de la función t.test?",
+    answer("two.sided"),
+    answer("less"),
+    answer("greater", correct = TRUE)
+  )
+)
+```
+
+### Pregunta 2 
+
+Evalúa si la media poblacional de la variable `Rape` de la base de datos `USArrests` es menor a 18. 
+
+```{r question2, exercise=TRUE}
+data("USArrests")
+
+```
+
+### Pregunta 3 
+
+Un investigador muestrea 150 individuos y quiere evaluar la presencia de un gen mutante en ellos. Encuentra que 43 individuos tuvieron presencia de este gen. Evalúa si la probabilidad de presencia de este gen es menor a 0.4.
+
+```{r question3, exercise=TRUE}
+
+```
+
+## Modelos lineales
+
+### Pregunta 1
+
+Implementa un modelo lineal, donde la variable respuesta sea `Murder` y las variables explicativas sean `Rape` y `Assault` de la base de datos `USArrests`. Encuentra la tabla resumen de este modelo.
+
+```{r question4, exercise=TRUE}
+data("USArrests")
+
+```
+
+### Pregunta 2
+
+Del modelo anterior, verifica si existe alguna observación influyente.
+
+*Nota: Es posible que necesites correr el modelo nuevamente dentro del recuadro.*
+
+```{r question5, exercise=TRUE}
+
+```
+
+### Pregunta 3
+
+Predice valores de `Murder` para nuevo valores de `Rape` (secuencia de 7 a 16 a paso de 1) y `Assault` (secuencia de 45 a 337 a pasos de 2), basados en el modelo anterior..
+
+*Nota: Es posible que necesites correr el modelo nuevamente dentro del recuadro.*
+
+```{r question6, exercise=TRUE}
+
+```
