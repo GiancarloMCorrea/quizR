@@ -1,0 +1,71 @@
+---
+title: "AlwaysR, Módulo III: Día 4"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Repaso
+
+### Pregunta 1 
+
+Usando la base de datos `iris`, implementa un modelo lineal simple donde la variable respuesta sea `Petal.Length` y las variables independientes sean `Sepal.Length` y `Sepal.Width`.
+
+```{r question1, exercise=TRUE}
+data(iris)
+
+```
+
+### Pregunta 2
+
+Basado en el modelo anterior, verifica si los residuos son normales.
+
+*Nota: Necesitas correr el modelo nuevamente dentro del recuadro*.
+
+```{r question2, exercise=TRUE}
+
+```
+
+### Pregunta 3
+
+Basado en el modelo anterior, extrae los valores de $R^2-adj$ y la varianza estimada de los residuales $\hat{\sigma}^2$.
+
+*Nota: Necesitas correr el modelo nuevamente dentro del recuadro*.
+
+```{r question3, exercise=TRUE}
+
+```
+
+## Modelos lineales
+
+### Pregunta 1 
+
+Usando la base de datos `iris`, implementa un modelo lineal donde se incluya a `Sepal.Length` como variable indendiente a la interacción de esta con `Species`. La variable respuesta debe ser `Petal.Length`. Extrae el AIC y BIC de este modelo.
+
+```{r question4, exercise=TRUE}
+
+```
+
+### Pregunta 2 
+
+Del modelo anterior, hacer una gráfica donde se muestre la línea ajustada y su incertidumbre diferenciado por `Species`. Usa la función `plot_model` (de la librería `sjPlot`) y especifica `type = 'int'`.
+
+*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+
+```{r question5, exercise=TRUE}
+
+```
+
+### Pregunta 3 
+
+Dado la base de datos `seatpos` de la librería `faraway`, encuentra el mejor modelo usando la técnica de selección hacia adelante. La variable respuesta debe ser `hipcenter` y las demás variables de la base de datos son las explicativas. Asume un valor crítico de 0.05.
+
+*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+
+```{r question6, exercise=TRUE}
+
+```
