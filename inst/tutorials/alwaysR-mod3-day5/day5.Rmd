@@ -1,0 +1,78 @@
+---
+title: "AlwaysR, Módulo III: Día 5"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Efectos aleatorios
+
+### Pregunta 1 
+
+Usando la base de datos `iris`, implementa un modelo lineal mixto donde la variable respuesta sea `Petal.Length`, la variable independiente `Sepal.Length`, y `Species` sea la variable con efecto aleatorio solo para la pendiente.
+
+*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+
+```{r question1, exercise=TRUE}
+data(iris)
+
+```
+
+### Pregunta 2
+
+Basado en el modelo anterior, encuentra qué especie(s) lleva a una pendiente final más grande. Usa la función `plot_model` para hallar esto.
+
+*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+
+```{r question2, exercise=TRUE}
+data(iris)
+
+```
+
+### Pregunta 3
+
+Responde las siguientes preguntas.
+
+```{r quiz1}
+quiz(
+  question("Un investigador va a tomar datos de la altura y peso de una especie de cangrejo a tres playas de México. ¿Qué variable puede ser incorporada como un efecto aleatorio en un modelo lineal?",
+    answer("Altura de cangrejo"),
+    answer("Peso de cangrejo"),
+    answer("Playa"),
+    answer("Ninguna", correct = TRUE)
+  ),
+  question("Un investigador va a tomar datos de la concentración de oxígeno y plomo en el ambiente en 20 distritos de la Ciudad de México. Dentro de cada distrito establece 10 puntos de muestreo y en cada uno de estos toma cinco muestras. ¿Qué variable(s) puede ser incorporada como un efecto aleatorio en un modelo lineal?",
+    answer("Distrito"),
+    answer("Punto de muestreo"),
+    answer("Ambas", correct = TRUE)
+  )
+)
+```
+
+
+## Modelos lineales generalizados
+
+### Pregunta 1 
+
+Usando la base de datos `warpbreaks` de la libraría `datasets`. Implementa un modelo lineal generalizado donde `breaks` sea la variable respuesta y `wool`, `tension`, `wool*tension` las variables independientes. Asume una distribución tipo Poisson.
+
+*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+
+```{r question3, exercise=TRUE}
+
+```
+
+### Pregunta 2 
+
+Basado en la pregunta anterior, decide si una familia Poisson es adecuada. Si no es así, propon un nuevo modelo con una familia diferente.
+
+*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+
+```{r question4, exercise=TRUE}
+
+```
+
