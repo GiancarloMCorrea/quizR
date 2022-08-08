@@ -1,0 +1,26 @@
+---
+title: "Decode for any answer"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(learnrhash)
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Decode demo
+
+The following would not be included in a student facing tutorial, but has been included 
+here to demonstrate the decoding functionality of the [`learnrhash`](https://github.com/rundel/learnrhash) package. 
+Paste your hash from the preceding step into the text box below and push the Decode button.
+You should then see printed tibbles containing the question and exercise results you have entered into the tutorial so far. See the package README for details on how these data would be extracted in practice for a real assignment.
+
+```{r context="server"}
+learnrhash::decoder_logic()
+```
+
+```{r decode, echo=FALSE}
+learnrhash::decoder_ui()
+```
