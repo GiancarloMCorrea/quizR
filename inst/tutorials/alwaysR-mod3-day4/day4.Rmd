@@ -55,14 +55,7 @@ Usando la base de datos `iris`, implementa un modelo lineal donde se incluya a `
 Del modelo anterior, hacer una gráfica donde se muestre la línea ajustada y su incertidumbre diferenciado por `Species`. Usa la función `plot_model` (de la librería `sjPlot`) y especifica `type = 'int'`.
 
 ```{r load-package, warning = FALSE, message=FALSE}
-library(sjPlot)
-library(sjmisc)
 library(ggplot2)
-library(faraway)
-library(Sleuth3)
-library(nlme)
-library(olsrr)
-library(lme4)
 ```
 
 ```{r question5, exercise=TRUE, exercise.setup = 'load-package'}
