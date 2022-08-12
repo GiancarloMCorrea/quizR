@@ -1,13 +1,18 @@
 ---
-title: "AlwaysR, Módulo III: Día 3"
+title: "AlwaysR, Módulo III: Estadística en R"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(learnrhash)
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+# Día 3
+
+No olvides de apretar el boton **Run code** o **Submit answer** para guardar tus respuestas.
 
 ## Repaso
 
@@ -15,7 +20,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Responde las siguientes preguntas:
 
-```{r quiz1}
+```{r quiz1-1}
 quiz(
   question("¿Qué prueba estadística (de las que hemos visto) es más adecuada cuando la variable no tiene distribución normal?",
     answer("Prueba t"),
@@ -41,8 +46,7 @@ quiz(
 
 Evalúa si la media poblacional de la variable `Rape` de la base de datos `USArrests` es menor a 18. 
 
-```{r question2, exercise=TRUE}
-data("USArrests")
+```{r section1-2, exercise=TRUE}
 
 ```
 
@@ -50,7 +54,7 @@ data("USArrests")
 
 Un investigador muestrea 150 individuos y quiere evaluar la presencia de un gen mutante en ellos. Encuentra que 43 individuos tuvieron presencia de este gen. Evalúa si la probabilidad de presencia de este gen es menor a 0.4.
 
-```{r question3, exercise=TRUE}
+```{r section1-3, exercise=TRUE}
 
 ```
 
@@ -60,8 +64,7 @@ Un investigador muestrea 150 individuos y quiere evaluar la presencia de un gen 
 
 Implementa un modelo lineal, donde la variable respuesta sea `Murder` y las variables explicativas sean `Rape` y `Assault` de la base de datos `USArrests`. Encuentra la tabla resumen de este modelo.
 
-```{r question4, exercise=TRUE}
-data("USArrests")
+```{r section2-1, exercise=TRUE}
 
 ```
 
@@ -69,18 +72,36 @@ data("USArrests")
 
 Del modelo anterior, verifica si existe alguna observación influyente.
 
-*Nota: Es posible que necesites correr el modelo nuevamente dentro del recuadro.*
-
-```{r question5, exercise=TRUE}
+```{r section2-2, exercise=TRUE}
 
 ```
 
 ### Pregunta 3
 
-Predice valores de `Murder` para nuevo valores de `Rape` (secuencia de 7 a 16 a paso de 1) y `Assault` (secuencia de 45 a 337 a pasos de 2), basados en el modelo anterior..
+Predice valores de `Murder` para nuevo valores de `Rape` (secuencia de 7 a 16 a paso de 1) y `Assault` (secuencia de 45 a 337 a pasos de 2), basados en el modelo anterior.
 
-*Nota: Es posible que necesites correr el modelo nuevamente dentro del recuadro.*
-
-```{r question6, exercise=TRUE}
+```{r section2-3, exercise=TRUE}
 
 ```
+
+## Enviar respuestas
+
+Felicidades por terminar este quiz! Por favor, copia el código generado en el Google Forms. El **número de quiz es 3**.
+
+---
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(
+  ui_before = div(strong("Copia el código generado en el formulario."), br(), br()),
+  ui_after  = learnrhash::iframe_ui(
+    src = "https://docs.google.com/forms/d/e/1FAIpQLSdJnJtKh1VK7xQdB5FKscRhn7gxz2R0jxRBLdWvLBHTnk70CA/viewform",
+    width="700px", height= "900px"
+  )
+)
+```
+

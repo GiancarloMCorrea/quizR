@@ -1,13 +1,18 @@
 ---
-title: "AlwaysR, Módulo III: Día 4"
+title: "AlwaysR, Módulo III: Estadística en R"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(learnrhash)
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+# Día 4
+
+No olvides de apretar el boton **Run code** o **Submit answer** para guardar tus respuestas.
 
 ## Repaso
 
@@ -16,15 +21,12 @@ knitr::opts_chunk$set(echo = FALSE)
 Usando la base de datos `iris`, implementa un modelo lineal simple donde la variable respuesta sea `Petal.Length` y las variables independientes sean `Sepal.Length` y `Sepal.Width`.
 
 ```{r question1, exercise=TRUE}
-data(iris)
 
 ```
 
 ### Pregunta 2
 
 Basado en el modelo anterior, verifica si los residuos son normales.
-
-*Nota: Necesitas correr el modelo nuevamente dentro del recuadro*.
 
 ```{r question2, exercise=TRUE}
 
@@ -34,13 +36,11 @@ Basado en el modelo anterior, verifica si los residuos son normales.
 
 Basado en el modelo anterior, extrae los valores de $R^2-adj$ y la varianza estimada de los residuales $\hat{\sigma}^2$.
 
-*Nota: Necesitas correr el modelo nuevamente dentro del recuadro*.
-
 ```{r question3, exercise=TRUE}
 
 ```
 
-## Modelos lineales
+## Interacciones
 
 ### Pregunta 1 
 
@@ -54,9 +54,18 @@ Usando la base de datos `iris`, implementa un modelo lineal donde se incluya a `
 
 Del modelo anterior, hacer una gráfica donde se muestre la línea ajustada y su incertidumbre diferenciado por `Species`. Usa la función `plot_model` (de la librería `sjPlot`) y especifica `type = 'int'`.
 
-*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+```{r load-package, warning = FALSE, message=FALSE}
+library(sjPlot)
+library(sjmisc)
+library(ggplot2)
+library(faraway)
+library(Sleuth3)
+library(nlme)
+library(olsrr)
+library(lme4)
+```
 
-```{r question5, exercise=TRUE}
+```{r question5, exercise=TRUE, exercise.setup = 'load-package'}
 
 ```
 
@@ -64,8 +73,65 @@ Del modelo anterior, hacer una gráfica donde se muestre la línea ajustada y su
 
 Dado la base de datos `seatpos` de la librería `faraway`, encuentra el mejor modelo usando la técnica de selección hacia adelante. La variable respuesta debe ser `hipcenter` y las demás variables de la base de datos son las explicativas. Asume un valor crítico de 0.05.
 
-*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+```{r question6, exercise=TRUE, exercise.setup = 'load-package'}
 
-```{r question6, exercise=TRUE}
+```
 
+## Efectos aleatorios
+
+### Pregunta 1 
+
+Usando la base de datos `iris`, implementa un modelo lineal mixto donde la variable respuesta sea `Petal.Length`, la variable independiente `Sepal.Length`, y `Species` sea la variable con efecto aleatorio solo para la pendiente.
+
+```{r question7, exercise=TRUE, exercise.setup = 'load-package'}
+
+```
+
+### Pregunta 2
+
+Basado en el modelo anterior, encuentra qué especie(s) lleva a una pendiente final más grande.
+
+```{r question8, exercise=TRUE, exercise.setup = 'load-package'}
+
+```
+
+### Pregunta 3
+
+Responde las siguientes preguntas.
+
+```{r quiz1}
+quiz(
+  question("Un investigador va a tomar datos de la altura y peso de una especie de cangrejo a tres playas de México. ¿Qué variable puede ser incorporada como un efecto aleatorio en un modelo lineal?",
+    answer("Altura de cangrejo"),
+    answer("Peso de cangrejo"),
+    answer("Playa"),
+    answer("Ninguna", correct = TRUE)
+  ),
+  question("Un investigador va a tomar datos de la concentración de oxígeno y plomo en el ambiente en 20 distritos de la Ciudad de México. Dentro de cada distrito establece 10 puntos de muestreo y en cada uno de estos toma cinco muestras. ¿Qué variable(s) puede ser incorporada como un efecto aleatorio en un modelo lineal?",
+    answer("Distrito"),
+    answer("Punto de muestreo"),
+    answer("Ambas", correct = TRUE)
+  )
+)
+```
+
+## Enviar respuestas
+
+Felicidades por terminar este quiz! Por favor, copia el código generado en el Google Forms. El **número de quiz es 4**.
+
+---
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(
+  ui_before = div(strong("Copia el código generado en el formulario."), br(), br()),
+  ui_after  = learnrhash::iframe_ui(
+    src = "https://docs.google.com/forms/d/e/1FAIpQLSdJnJtKh1VK7xQdB5FKscRhn7gxz2R0jxRBLdWvLBHTnk70CA/viewform",
+    width="700px", height= "900px"
+  )
+)
 ```

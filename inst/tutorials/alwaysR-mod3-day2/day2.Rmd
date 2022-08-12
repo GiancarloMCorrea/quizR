@@ -1,14 +1,19 @@
 ---
-title: "AlwaysR, Módulo III: Día 2"
+title: "AlwaysR, Módulo III: Estadística en R"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(learnrhash)
+library(ggplot2)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+# Día 2
+
+No olvides de apretar el boton **Run code** o **Submit answer** para guardar tus respuestas.
 
 ## Repaso
 
@@ -16,15 +21,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Calcula la varianza de la variable `mpg` de la base de datos `mtcars` para cada categoría de la variable `am`:
 
-```{r question1, exercise=TRUE}
-head(mtcars)
+```{r section1-1, exercise=TRUE}
+
 ```
 
 ### Pregunta 2 
 
-Obten la tabla de contingencia de las variables `am` y `vs` de la base de datos `mtcars`:
+Obtenga la tabla de contingencia de las variables `am` y `vs` de la base de datos `mtcars`:
 
-```{r question2, exercise=TRUE}
+```{r section1-2, exercise=TRUE}
 
 ```
 
@@ -32,7 +37,7 @@ Obten la tabla de contingencia de las variables `am` y `vs` de la base de datos 
 
 Obten los estadísticos descriptivos más importantes de cada columna de la base de datos `mtcars`:
 
-```{r question3, exercise=TRUE}
+```{r section1-3, exercise=TRUE}
 
 ```
 
@@ -40,7 +45,11 @@ Obten los estadísticos descriptivos más importantes de cada columna de la base
 
 Obten un scatterplot de las variables `mpg` (eje x) y `drat` (eje y), donde los puntos sean diferenciados por tipo de transmisión (`am`) (usa la base de datos `mtcars`):
 
-```{r question4, exercise=TRUE}
+```{r load-package-0, warning = FALSE, message=FALSE}
+library(ggplot2)
+```
+
+```{r section1-4, exercise=TRUE, exercise.setup = 'load-package-0'}
 
 ```
 
@@ -50,11 +59,15 @@ Obten un scatterplot de las variables `mpg` (eje x) y `drat` (eje y), donde los 
 
 Un investigador ha tomado información de la longitud de ala de una especie de ave en un bosque A y en un bosque B. Se han muestreado 100 individuos en el bosque A y 120 individuos en el bosque B. Los vectores `medA` y `medB` son los datos simulados para el bosque A y B, respectivamente. 
 
-Haz una prueba con las siguientes características: $H_0: \mu_A=\mu_B$ y $H_A: \mu_A\neq \mu_B$, donde $\mu_A$ es la media poblacional en el bosque A y $\mu_B$ es la media poblacional en el bosque B.
+Hacer una prueba con las siguientes características: $H_0: \mu_A=\mu_B$ y $H_A: \mu_A\neq \mu_B$, donde $\mu_A$ es la media poblacional en el bosque A y $\mu_B$ es la media poblacional en el bosque B.
 
-```{r question5, exercise=TRUE}
+```{r create-data-0}
 medA = rnorm(n = 100, mean = 60, sd = 10)
 medB = rnorm(n = 120, mean = 90, sd = 10)
+```
+
+```{r section2-1, exercise=TRUE, exercise.setup = 'create-data-0'}
+
 ```
 
 ### Pregunta 2
@@ -63,8 +76,12 @@ Un investigador ha tomado información de concentración de oxígeno en 50 punto
 
 Haz una prueba con las siguientes características: $H_0: \mu\leq 60$ y $H_A: \mu> 60$, donde $\mu$ es la media poblacional de la concentración de oxígeno.
 
-```{r question6, exercise=TRUE}
+```{r create-data-1}
 concO2 = rnorm(n = 50, mean = 40, sd = 2)
+```
+
+```{r section2-2, exercise=TRUE, exercise.setup = 'create-data-1'}
+
 ```
 
 ### Pregunta 3
@@ -73,10 +90,29 @@ Un investigador ha tomado información de la presencia/ausencia de un tipo de pa
 
 Haz una prueba estadística que evalúe si hay una asociación significativa entre las categorías de sexo y presencia/ausencia del parásito.
 
-```{r question7, exercise=TRUE}
+```{r create-data-2}
 myTab = as.table(rbind(c(70,30), c(50,50)))
 dimnames(myTab) = list(parasito = c("Ausencia", "Presencia"),
                    sexo = c("macho","hembra"))
+```
+
+```{r section2-3, exercise=TRUE, exercise.setup = 'create-data-2'}
+
+```
+
+### Pregunta 4
+
+Con la base de datos `Anorexia`, hace una prueba de hipótesis por pares para: $H_0: \delta\leq 0$.
+
+Donde: $\delta = \mu_{Prior}-\mu_{Post}$
+
+```{r load-package, warning = FALSE, message=FALSE}
+library(PairedData)
+data("Anorexia")
+```
+
+```{r section2-4, exercise=TRUE, exercise.setup = 'load-package'}
+
 ```
 
 
@@ -86,7 +122,7 @@ dimnames(myTab) = list(parasito = c("Ausencia", "Presencia"),
 
 Evalúa si existen diferencias significativas en las medias poblacionales de la variable `mpg` de la base de datos `mtcars` para diferentes tipos de transmisión (columna `am`).
 
-```{r question8, exercise=TRUE}
+```{r section3-1, exercise=TRUE}
 
 ```
 
@@ -94,8 +130,28 @@ Evalúa si existen diferencias significativas en las medias poblacionales de la 
 
 Evaluar si el ANOVA de la pregunta anterior cumple con el supuesto de normalidad
 
-```{r question9, exercise=TRUE}
+```{r section3-2, exercise=TRUE}
 
 ```
 
+## Enviar respuestas
+
+Felicidades por terminar este quiz! Por favor, copia el código generado en el Google Forms. El **número de quiz es 2**.
+
+---
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(
+  ui_before = div(strong("Copia el código generado en el formulario."), br(), br()),
+  ui_after  = learnrhash::iframe_ui(
+    src = "https://docs.google.com/forms/d/e/1FAIpQLSdJnJtKh1VK7xQdB5FKscRhn7gxz2R0jxRBLdWvLBHTnk70CA/viewform",
+    width="700px", height= "900px"
+  )
+)
+```
 
