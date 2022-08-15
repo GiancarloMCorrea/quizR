@@ -5,9 +5,9 @@ account: gmoroncorrea
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4461308
-bundleId: 6193791
+bundleId: 6194045
 url: https://gmoroncorrea.shinyapps.io/AlwaysR-Modulo3-day4/
-when: 1660264151.53561
-lastSyncTime: 1660264151.53561
+when: 1660273350.24566
+lastSyncTime: 1660273350.24566
 asMultiple: FALSE
 asStatic: FALSE

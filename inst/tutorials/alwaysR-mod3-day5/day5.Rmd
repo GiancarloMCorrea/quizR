@@ -1,56 +1,57 @@
 ---
-title: "AlwaysR, Módulo III: Día 5"
+title: "AlwaysR, Módulo III: Estadística en R"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
 
 ```{r setup, include=FALSE}
 library(learnr)
+library(learnrhash)
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Efectos aleatorios
+# Día 5
 
-### Pregunta 1 
+No olvides de apretar el boton **Run code** o **Submit answer** para guardar tus respuestas.
 
-Usando la base de datos `iris`, implementa un modelo lineal mixto donde la variable respuesta sea `Petal.Length`, la variable independiente `Sepal.Length`, y `Species` sea la variable con efecto aleatorio solo para la pendiente.
+```{r load-package, warning = FALSE, message=FALSE}
+library(ggplot2)
+library(datasets)
+library(MASS)
+library(statmod)
+library(mgcv)
+library(faraway)
+library(ggeffects)
+library(nlme)
+library(lme4)
+library(mlmRev)
+library(sjPlot)
+```
 
-*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
+## Repaso
 
-```{r question1, exercise=TRUE}
-data(iris)
+### Pregunta 1
+
+Implementa un modelo lineal (con efectos fijos y/o aleatorios) con la base `Exam`. La variable respuesta es `normexam` y la variable independiente es `standLRT`. La variable agrupadora es `sex`. Evalúa todas las opciones que se dispone con las instrucciones dadas y encuentra el mejor modelo.
+
+```{r question0, exercise=TRUE, exercise.setup = 'load-package'}
 
 ```
 
 ### Pregunta 2
 
-Basado en el modelo anterior, encuentra qué especie(s) lleva a una pendiente final más grande. Usa la función `plot_model` para hallar esto.
+Del mejor modelo anterior, grafica la linea ajustada solo para el **efecto fijo**. 
 
-*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
-
-```{r question2, exercise=TRUE}
-data(iris)
+```{r question0a, exercise=TRUE, exercise.setup = 'load-package'}
 
 ```
 
 ### Pregunta 3
 
-Responde las siguientes preguntas.
+Del mejor modelo anterior, grafica la linea ajustada solo para el **efecto aleatorio**. 
 
-```{r quiz1}
-quiz(
-  question("Un investigador va a tomar datos de la altura y peso de una especie de cangrejo a tres playas de México. ¿Qué variable puede ser incorporada como un efecto aleatorio en un modelo lineal?",
-    answer("Altura de cangrejo"),
-    answer("Peso de cangrejo"),
-    answer("Playa"),
-    answer("Ninguna", correct = TRUE)
-  ),
-  question("Un investigador va a tomar datos de la concentración de oxígeno y plomo en el ambiente en 20 distritos de la Ciudad de México. Dentro de cada distrito establece 10 puntos de muestreo y en cada uno de estos toma cinco muestras. ¿Qué variable(s) puede ser incorporada como un efecto aleatorio en un modelo lineal?",
-    answer("Distrito"),
-    answer("Punto de muestreo"),
-    answer("Ambas", correct = TRUE)
-  )
-)
+```{r question0b, exercise=TRUE, exercise.setup = 'load-package'}
+
 ```
 
 
@@ -58,21 +59,71 @@ quiz(
 
 ### Pregunta 1 
 
-Usando la base de datos `warpbreaks` de la libraría `datasets`. Implementa un modelo lineal generalizado donde `breaks` sea la variable respuesta y `wool`, `tension`, `wool*tension` las variables independientes. Asume una distribución tipo Poisson.
+Usando la base de datos `warpbreaks`, implementa un modelo lineal generalizado donde `breaks` sea la variable respuesta y `wool`, `tension`, `wool*tension` las variables independientes. Asume una distribución tipo Poisson.
 
-*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
-
-```{r question3, exercise=TRUE}
+```{r question1, exercise=TRUE, exercise.setup = 'load-package'}
 
 ```
 
 ### Pregunta 2 
 
-Basado en la pregunta anterior, decide si una familia Poisson es adecuada. Si no es así, propon un nuevo modelo con una familia diferente.
+Basado en la pregunta anterior, decide si una familia Poisson es adecuada. Si no es así, debes proponer un nuevo modelo con una familia diferente.
 
-*Nota: Esto no lo podrás responder en este recuadro. Usa RStudio para hacer este ejercicio.*
-
-```{r question4, exercise=TRUE}
+```{r question2, exercise=TRUE, exercise.setup = 'load-package'}
 
 ```
 
+### Pregunta 3
+
+Verifica si la distribución asumida es la correcta (para el modelo anterior):
+
+```{r question3, exercise=TRUE, exercise.setup = 'load-package'}
+
+```
+
+## Modelos aditivos generalizados
+
+### Pregunta 1 
+
+Implementa un modelo aditivo generalizado utilizando la base de datos `ozone`, donde la variable respuesta es `O3` y las variables independientes sean `temp` y `ibh` (este último con término de suavizamiento). Encuentra el GCV del modelo.
+
+```{r question4, exercise=TRUE, exercise.setup = 'load-package'}
+
+```
+
+### Pregunta 2
+
+Grafica la variable respuesta en función a las variables independientes ajustadas a partir del modelo anterior.
+
+```{r question5, exercise=TRUE, exercise.setup = 'load-package'}
+
+```
+
+### Pregunta 3
+
+Corre el mismo modelo de la pregunta 1, pero **no** incluyas el suavizamiento para la variable `ibh`. ¿Comó podrías encontrar el mejor modelo entre la pregunta 1 y este modelo? 
+
+```{r question6, exercise=TRUE, exercise.setup = 'load-package'}
+
+```
+
+## Enviar respuestas
+
+Felicidades por terminar este quiz! Por favor, copia el código generado en el Google Forms. El **número de quiz es 5**.
+
+---
+
+```{r context="server"}
+learnrhash::encoder_logic()
+```
+
+
+```{r encode, echo=FALSE}
+learnrhash::encoder_ui(
+  ui_before = div(strong("Copia el código generado en el formulario."), br(), br()),
+  ui_after  = learnrhash::iframe_ui(
+    src = "https://docs.google.com/forms/d/e/1FAIpQLSdJnJtKh1VK7xQdB5FKscRhn7gxz2R0jxRBLdWvLBHTnk70CA/viewform",
+    width="700px", height= "900px"
+  )
+)
+```

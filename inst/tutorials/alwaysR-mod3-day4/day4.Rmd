@@ -56,6 +56,13 @@ Del modelo anterior, hacer una gráfica donde se muestre la línea ajustada y su
 
 ```{r load-package, warning = FALSE, message=FALSE}
 library(ggplot2)
+library(faraway)
+library(Sleuth3)
+library(nlme)
+library(olsrr)
+library(lme4)
+library(sjPlot)
+library(sjmisc)
 ```
 
 ```{r question5, exercise=TRUE, exercise.setup = 'load-package'}
