@@ -14,6 +14,10 @@ knitr::opts_chunk$set(echo = FALSE)
 
 No olvides de apretar el boton **Run code** o **Submit answer** para guardar tus respuestas.
 
+```{r load-package, warning = FALSE, message=FALSE}
+library(DescTools)
+```
+
 ## Tendencia central
 
 ### Pregunta 1 
@@ -30,7 +34,7 @@ head(...)
 
 ### Pregunta 2
 
-Calcula la media de la variable `Sepal.Width`:
+Calcula la media de la variable `Sepal.Width` (de la base de datos `iris`):
 
 ```{r section1-2, exercise=TRUE}
 
@@ -38,9 +42,9 @@ Calcula la media de la variable `Sepal.Width`:
 
 ### Pregunta 3
 
-Calcula la moda de la variable `Species`:
+Calcula la moda de la variable `Species` (de la base de datos `iris`):
 
-```{r section1-3, exercise=TRUE}
+```{r section1-3, exercise=TRUE, exercise.setup = 'load-package'}
 
 ```
 
@@ -50,7 +54,7 @@ table(...)
 
 ### Pregunta 4
 
-Calcula la mediana de la variable `Sepal.Length`:
+Calcula la mediana de la variable `Sepal.Length` (de la base de datos `iris`):
 
 ```{r section1-4, exercise=TRUE}
 
@@ -101,7 +105,7 @@ quiz(
 
 ### Pregunta 1
 
-Calcula la varianza de la variable `Sepal.Length`:
+Calcula la varianza de la variable `Sepal.Length` (de la base de datos `iris`):
 
 ```{r section2-1, exercise=TRUE}
 
@@ -109,7 +113,7 @@ Calcula la varianza de la variable `Sepal.Length`:
 
 ### Pregunta 2
 
-Calcula el coeficiente de variación de la variable `Petal.Length`:
+Calcula el coeficiente de variación de la variable `Petal.Length` (de la base de datos `iris`):
 
 ```{r section2-2, exercise=TRUE}
 
@@ -117,7 +121,7 @@ Calcula el coeficiente de variación de la variable `Petal.Length`:
 
 ### Pregunta 3
 
-Calcula el rango interquartil de la variable `Sepal.Width`:
+Calcula el rango interquartil de la variable `Sepal.Width` (de la base de datos `iris`):
 
 ```{r section2-3, exercise=TRUE}
 
@@ -125,7 +129,7 @@ Calcula el rango interquartil de la variable `Sepal.Width`:
 
 ### Pregunta 4
 
-Calcula el percentil 14 de la variable `Sepal.Width`:
+Calcula el percentil 14 de la variable `Sepal.Width` (de la base de datos `iris`):
 
 ```{r section2-4, exercise=TRUE}
 
@@ -135,7 +139,7 @@ Calcula el percentil 14 de la variable `Sepal.Width`:
 
 ### Pregunta 1
 
-Has un diagrama de cajas simple de la variable `Sepal.Length`:
+Has un diagrama de cajas simple de la variable `Sepal.Length` (de la base de datos `iris`):
 
 ```{r section3-1, exercise=TRUE}
 
@@ -143,7 +147,7 @@ Has un diagrama de cajas simple de la variable `Sepal.Length`:
 
 ### Pregunta 2
 
-Has una curva de densidad simple de la variable `Petal.Length`:
+Has una curva de densidad simple de la variable `Petal.Length` (de la base de datos `iris`):
 
 ```{r section3-2, exercise=TRUE}
 
@@ -153,7 +157,7 @@ Has una curva de densidad simple de la variable `Petal.Length`:
 
 ### Pregunta 1
 
-Calcula la probabilidad de obtener un valor mayor a 5.5 en la variable `Sepal.Length`:
+Calcula la probabilidad de obtener un valor mayor a 5.5 en la variable `Sepal.Length` (de la base de datos `iris`). Asumir que la variable tiene distribución normal.
 
 ```{r section4-1, exercise=TRUE}
 
@@ -165,7 +169,7 @@ pnorm(...)
 
 ### Pregunta 2
 
-Calcula la probabilidad de obtener un valor igual a 70 de la variable `Temp` de la base de datos `airquality`:
+Calcula la probabilidad de obtener un valor igual a 70 de la variable `Temp` de la base de datos `airquality`. Asumir que la variable tiene distribución normal.
 
 ```{r section4-2, exercise=TRUE}
 
